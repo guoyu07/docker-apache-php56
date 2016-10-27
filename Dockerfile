@@ -16,7 +16,13 @@ RUN apt-get update && \
       php5-json \
       php5-ldap \
       php5-mysql \
-      php5-pgsql
+      php5-pgsql \
+      mysql-client \
+      php5-curl \
+      nodejs \
+      npm
+
+RUN cd $(dirname `which nodejs`) && ln -s nodejs node
 
 COPY apache_default /etc/apache2/sites-available/000-default.conf
 COPY run /usr/local/bin/run
