@@ -20,7 +20,8 @@ RUN apt-get update && \
       mysql-client \
       php5-curl \
       nodejs \
-      npm
+      npm \
+      git
 
 RUN cd $(dirname `which nodejs`) && ln -s nodejs node
 
