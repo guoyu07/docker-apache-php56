@@ -11,11 +11,17 @@ RUN apt-get update && \
       curl \
       nodejs \
       npm \
-      git
+      git \
+      php7.0-curl \
+      php7.0-dom \
+      php7.0-mbstring
 
 RUN curl -s https://packagecloud.io/install/repositories/phalcon/stable/script.deb.sh | bash
 RUN sudo apt-get install php7.0-phalcon
 RUN service apache2 restart
+RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+RUN php composer-setup.php
+RUN php -r "unlink('composer-setup.php');"
 RUN echo "<?php phpinfo();" > /var/www/html/index.php
 
 COPY apache_default /etc/apache2/sites-available/000-default.conf
