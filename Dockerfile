@@ -14,7 +14,8 @@ RUN apt-get update && \
       git \
       php7.0-curl \
       php7.0-dom \
-      php7.0-mbstring
+      php7.0-mbstring \
+      php7.0-zip
 
 RUN curl -s https://packagecloud.io/install/repositories/phalcon/stable/script.deb.sh | bash
 RUN sudo apt-get install php7.0-phalcon
