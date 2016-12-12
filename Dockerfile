@@ -19,7 +19,6 @@ RUN apt update && \
 
 RUN curl -s https://packagecloud.io/install/repositories/phalcon/stable/script.deb.sh | bash
 RUN apt-get install php7.0-phalcon
-RUN service apache2 restart
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 RUN php composer-setup.php
 RUN php -r "unlink('composer-setup.php');"
